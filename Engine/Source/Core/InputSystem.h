@@ -43,6 +43,7 @@ class DLLExport InputSystem
 
 		static void KeyCallback(GLFWwindow *W, int key, int scancode, int action, int mods);
 		static void Init();
+		static void Reload();
 
 		static int GetMods();
 

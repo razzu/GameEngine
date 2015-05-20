@@ -77,6 +77,7 @@ void DebugInput::OnKeyPress(int key, int mods) {
 
 	case GLFW_KEY_F5: {
 		Manager::Shader->Reload();
+		InputSystem::Reload();
 		return;
 	}
 	}

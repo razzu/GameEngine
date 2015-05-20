@@ -227,6 +227,26 @@ void InputSystem::MapMouse() {
 	}
 }
 
+void InputSystem::Reload() {
+	string emptyString;
+	for (int i = 0; i < 16; i++) {
+		for (int j = 0; j < 384; j++) {
+			for (int k = 0; k < 3; k++) {
+				keyInputEvents[i][j][k] = emptyString;
+			}
+		}
+	}
+	for (int i = 0; i < 16; i++) {
+		for (int j = 0; j < 8; j++) {
+			for (int k = 0; k < 3; k++) {
+				mouseInputEvents[i][j][k] = emptyString;
+			}
+		}
+	}
+
+	Load("Config/Input.xml");
+}
+
 void InputSystem::Load(const char* file) {
 	// TODO:
 	//  - left control and right control? should find a solution for stuff like that
