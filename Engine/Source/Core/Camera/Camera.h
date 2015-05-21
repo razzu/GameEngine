@@ -32,9 +32,9 @@ class DLLExport Camera: virtual public GameObject {
 		void UpdateRoll(float deltaAngle);
 
 		// Rotation
-		void RotateOX(float deltaTime);
-		void RotateOY(float deltaTime);
-		void RotateOZ(float deltaTime);
+		virtual void RotateOX(float deltaTime);
+		virtual void RotateOY(float deltaTime);
+		virtual void RotateOZ(float deltaTime);
 
 		void SetDirection(glm::vec3 direction);
 

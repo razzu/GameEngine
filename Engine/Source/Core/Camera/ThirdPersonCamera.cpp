@@ -12,6 +12,7 @@ ThirdPersonCamera::ThirdPersonCamera()
 {
 	targetMaxDist = 200.0f;	
 	limitUpTPS =  0.95f * (float) M_PI / 2;
+	targetDist = 50.0f; //TEMPORARY!
 }
 
 ThirdPersonCamera::~ThirdPersonCamera() {
@@ -19,9 +20,21 @@ ThirdPersonCamera::~ThirdPersonCamera() {
 }
 
 void ThirdPersonCamera::RotateOX(float deltaTime) {
+	if (deltaTime == 0)
+		return;
+
+	SetPosition(transform->position + glm::normalize(forward) * targetDist);
+	UpdatePitch(-deltaTime * sensitivityOX);
+	SetPosition(transform->position - glm::normalize(forward) * targetDist);
 }
 
 void ThirdPersonCamera::RotateOY(float deltaTime) {
+	if (deltaTime == 0)
+		return;
+
+	SetPosition(transform->position + glm::normalize(forward) * targetDist);
+	SetYaw(-deltaTime * sensitivityOY);
+	SetPosition(transform->position - glm::normalize(forward) * targetDist);
 }
 
 void ThirdPersonCamera::RotateOZ(float deltaTime) {

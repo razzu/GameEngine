@@ -3,7 +3,7 @@
 #include <include/gl.h>
 #include <Core/Camera/Camera.h>
 
-class ThirdPersonCamera : public Camera
+class DLLExport ThirdPersonCamera : public Camera
 {
 	public:
 		ThirdPersonCamera();

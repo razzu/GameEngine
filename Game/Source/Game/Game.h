@@ -7,6 +7,7 @@ using namespace std;
 #include <Event/EventListener.h>
 
 class Camera;
+class ThirdPersonCamera;
 class CameraInput;
 class CameraDebugInput;
 class ColorPicking;
@@ -42,6 +43,7 @@ class Game : public World,
 	private:
 		Camera				*freeCamera;
 		Camera				*gameCamera;
+		ThirdPersonCamera	*thirdPersonCamera;
 		CameraInput			*cameraInput;
 		CameraDebugInput	*cameraDebugInput;
 

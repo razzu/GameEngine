@@ -20,6 +20,7 @@
 #include <Component/ObjectInput.h>
 #include <Component/Renderer.h>
 
+#include <Core/Camera/ThirdPersonCamera.h>
 #include <Core/Camera/Camera.h>
 #include <Core/Engine.h>
 #include <Core/GameObject.h>
@@ -91,6 +92,12 @@ void Game::Init() {
 	freeCamera->SetPerspective(40, aspectRation, 0.1f, 500);
 	freeCamera->SetPosition(glm::vec3(0.0f, 10.0f, 10.0f));
 	freeCamera->Update();
+
+	// Third person-ish camera
+	thirdPersonCamera = new ThirdPersonCamera();
+	thirdPersonCamera->SetPerspective(40, aspectRation, 0.1f, 150);
+	thirdPersonCamera->SetPosition(glm::vec3(0, 5, 5));
+	thirdPersonCamera->SplitFrustum(5);
 
 	activeCamera = gameCamera;
 
@@ -477,6 +484,7 @@ void Game::InitSceneCameras()
 	sceneCameras.push_back(freeCamera);
 	sceneCameras.push_back(Spot);
 	sceneCameras.push_back(Sun);
+	sceneCameras.push_back(thirdPersonCamera);
 
 	activeCamera->SetDebugView(false);
 }
